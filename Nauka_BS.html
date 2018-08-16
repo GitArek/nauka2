@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Nauka_BS</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+        button[type="button"] { width: 50%; }
+        #firstColumn{
+            margin-top: 70px;
+        }
+
+        .jumbotron h2{
+             font-size: 2vw;
+         }
+
+        .jumbotron p{
+            font-size: 1.5vw;
+        }
+
+        @media only screen and (max-width: 768px)
+        {
+            #firstColumn {
+                margin-top: 310px;
+            }
+
+            .jumbotron h2{
+                font-size: 5vh;
+            }
+
+            .jumbotron p{
+                font-size: 3.75vh;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSite</a>
+        </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+    </ul>
+        <p class="navbar-text">Jakiś tekst</p>
+        <form class="navbar-form navbar-right" action="#">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search"></input>
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="container" id="firstColumn">
+    <div class="page-header">
+        <h1>Super stronka że ło cho cho :)</h1>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2" style="overflow: auto; padding-right: 0px">
+            <div class="jumbotron" style="padding: 10px;">
+                <h2>Ciekawostki</h2>
+                <p>Text inside a header</p>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="jumbotron">
+                <h1>Druga kolumna</h1>
+                <p>Collapse test</p>
+                <div ng-app="myApp" ng-controller="myCtrl">
+                    Waga [kg]: <input ng-model="waga"><br>
+                    Wzrost [m]: <input ng-model="wzrost">
+                    <p>BMI: {{ waga / wzrost / wzrost }}</p>
+                </div>
+
+                <script>
+                    let app = angular.module("myApp",[]);
+                    app.controller("myCtrl",function($scope){
+                        $scope.waga = "80";
+                        $scope.wzrost = "1.75";
+                    });
+                </script>
+
+            </div>
+        <div class="text-center" style="margin:10px">
+            <div>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#test1">First Collapse</button>
+                <div id="test1" class="collapse">
+                    Pierwszy test elemetu typu collapse.<br>Pierwszy test elemetu typu collapse.
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#test2">Second Collapse</button>
+                <div id="test2" class="collapse">
+                    Drugi test elemetu typu collapse.<br>Drugi test elemetu typu collapse.
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#test3">Third Collapse</button>
+                <div id="test3" class="collapse">
+                    Trzeci test elemetu typu collapse.<br>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-sm-2" style="overflow: auto; padding-left: 0px">
+            <div class="jumbotron" style="padding: 10px;">
+                <h2>Reklamy</h2>
+                <p>Cokolwiek</p>
+            </div>
+        </div>
+    </div>
+
+
+<div class="row">
+    <div class="col-sm-12 text-center">
+    <ul class="pagination pagination-sm">
+        <li class="previous"><a herf="#">1</a></li>
+        <li class="active"><a herf="#">2</a></li>
+        <li><a herf="#">3</a></li>
+        <li class="next"><a herf="#">4</a></li>
+    </ul>
+
+
+    <ul class="pager">
+        <li class="previous"><a herf="#">previous</a></li>
+        <li class="next"><a herf="#">next</a></li>
+    </ul>
+
+    </div>
+    </div>
+</div>
+</body>
+</html>

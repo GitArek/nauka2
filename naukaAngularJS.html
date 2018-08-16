@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>naukaAngularJS</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="mainControler">
+    <h1>AngularJS exercises</h1>
+    <p>In this paragraph is training AngularJS {{2-1}}</p>
+
+    <div ng-controller="myFirstCtrl">
+        <p>In this paragraph is use <strong>myFirstCtrl</strong></p>
+        <p>{{a}}</p>
+
+        <div test-directive parametr1 = "12" parametr2 = "{{a}}" parametr3 = "sampleFunction()"></div>
+
+    </div>
+
+    <div ng-controller="mySecondCtrl">
+        <p>In this paragraph is use <strong>mySecondCtrl</strong></p>
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+    </div>
+
+    <div ng-if="2 == 2">
+        <p>Ng-if test</p>
+    </div>
+    <p>End of testing</p>
+
+
+</div>
+<script>
+    let app = angular.module("myApp", []);
+    app.controller("mainControler",funMainControler)
+        .controller("myFirstCtrl",funFirstController)
+        .controller("mySecondCtrl",funSecondController);
+
+    function funMainControler($scope) {
+        $scope.a = "Main sample text";
+        console.log("Test mainControler")
+    }
+
+    function funFirstController($scope) {
+        $scope.a = "First sample text";
+        console.log("Test myFirstCtrl");
+    }
+
+    function funSecondController($scope) {
+        console.log("Test mySecondCtrl");
+        $scope.b = "Second sample text";
+    }
+
+    app.directive("testDirective", function() {
+        return{
+            restrict : "A",
+            //scope: true,
+            scope: {
+                parametr1: "@",
+                parametr2: "@",
+                parametr3: "&"
+            },
+
+            template: "<h1>Test of the directive</h1>" +
+                    "{{parametr2}}" +
+                "<p><strong>End of the directive test</strong></p>"
+        };
+    });
+
+</script>
+
+<script src = "naukaTS.js"></script>
+
+</body>
+</html>
